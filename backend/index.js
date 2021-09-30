@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const { exec } = require("child_process");
 
 const app = express();
 
@@ -21,6 +22,13 @@ app.post("/", (req, res) => {
 });
 
 app.post("/doMagic", (req, res) => {
+  exec("sh hello.sh", (error, stdout, stderr) => {
+    console.log(stdout);
+    console.warn(stderr);
+    if (error !== null) {
+      console.log(`exec error: ${error}`);
+    }
+  });
   res.send(req.body);
 });
 
