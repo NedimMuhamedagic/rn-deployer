@@ -24,7 +24,7 @@ app.post("/", (req, res) => {
 
 app.post("/doMagic", async (req, res) => {
   try {
-    await runScript("./hello.sh");
+    await runScript("./clone.sh", req.body.gitUrl);
     return res.send(req.body);
   } catch (e) {
     console.log(e);
@@ -32,17 +32,18 @@ app.post("/doMagic", async (req, res) => {
   }
 });
 
-const runScript = async (scriptToRun) => {
+const runScript = async (scriptToRun, ...args) => {
+  console.log("OOO:::", args);
   return new Promise((resolve, reject) => {
-    script = spawn(scriptToRun, []);
+    script = spawn(scriptToRun, args);
 
     script.stdout.on("data", function (data) {
       console.log("stdout: " + data.toString());
     });
 
     script.stderr.on("data", function (data) {
-      reject();
       console.log("stderr: " + data.toString());
+      reject();
     });
 
     script.on("exit", function (code) {
