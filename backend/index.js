@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
-const { exec } = require("child_process");
+const { spawn } = require("child_process");
+const fs = require("fs");
 
 const app = express();
 
@@ -21,16 +22,35 @@ app.post("/", (req, res) => {
   });
 });
 
-app.post("/doMagic", (req, res) => {
-  exec("sh hello.sh", (error, stdout, stderr) => {
-    console.log(stdout);
-    console.warn(stderr);
-    if (error !== null) {
-      console.log(`exec error: ${error}`);
-    }
-  });
-  res.send(req.body);
+app.post("/doMagic", async (req, res) => {
+  try {
+    await runScript("./hello.sh");
+    return res.send(req.body);
+  } catch (e) {
+    console.log(e);
+    return res.status(500).send(e);
+  }
 });
+
+const runScript = async (scriptToRun) => {
+  return new Promise((resolve, reject) => {
+    script = spawn(scriptToRun, []);
+
+    script.stdout.on("data", function (data) {
+      console.log("stdout: " + data.toString());
+    });
+
+    script.stderr.on("data", function (data) {
+      reject();
+      console.log("stderr: " + data.toString());
+    });
+
+    script.on("exit", function (code) {
+      console.log("child process exited with code " + code.toString());
+      resolve();
+    });
+  });
+};
 
 app.listen(PORT, () => {
   console.log(`Example app listening at http://localhost:${PORT}`);
