@@ -25,6 +25,7 @@ app.post("/", (req, res) => {
 app.post("/doMagic", async (req, res) => {
   try {
     await runScript("./clone.sh", req.body.gitUrl);
+    await runScript("./rn-start.sh", req.body.gitUrl);
     return res.send(req.body);
   } catch (e) {
     console.log(e);
@@ -33,7 +34,6 @@ app.post("/doMagic", async (req, res) => {
 });
 
 const runScript = async (scriptToRun, ...args) => {
-  console.log("OOO:::", args);
   return new Promise((resolve, reject) => {
     script = spawn(scriptToRun, args);
 
@@ -43,12 +43,15 @@ const runScript = async (scriptToRun, ...args) => {
 
     script.stderr.on("data", function (data) {
       console.log("stderr: " + data.toString());
-      reject();
     });
 
     script.on("exit", function (code) {
       console.log("child process exited with code " + code.toString());
-      resolve();
+      if (code === 0) {
+        resolve();
+      } else {
+        reject();
+      }
     });
   });
 };

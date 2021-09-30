@@ -1,2 +1,3 @@
 #!/bin/bash
-git clone $1
+rm -rf temp
+git clone $1 temp
