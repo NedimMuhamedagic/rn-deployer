@@ -47,7 +47,7 @@ platform :android do
 
     APK_LOCATION = "#{lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]}"   
     
-    sh("appcenter distribute release --token c6b84580c8b3b11a89ec9f65d48dad28fd59f7dd -a milan.gluhic/demoapp -g Collaborators -f #{APK_LOCATION}")
+    sh("appcenter distribute release --token c6b84580c8b3b11a89ec9f65d48dad28fd59f7dd -a milan.gluhic/demoapp -g Public -f #{APK_LOCATION}")
 
     sh("mv #{APK_LOCATION} ../../../builds/demoapp.apk")
   end
