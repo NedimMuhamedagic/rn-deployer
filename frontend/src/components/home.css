@@ -1,0 +1,26 @@
+.wrapper {
+    padding: 5em;
+    background-image: url('../assets/background.png');
+    min-height: 700px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #e6e6e6;
+    margin-top: 0px !important;
+    position: relative;
+    z-index: 3;
+}
+.textField {
+    width: 800px;
+    max-width: 70vw;
+}
+.logo {
+    max-width: 150px;
+}
+.header {
+    background-color: white !important;
+    z-index: 5 !important;
+    position: relative !important;
+}
+.headerText {
+    color: #282c34 !important;
+}
