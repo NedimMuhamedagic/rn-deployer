@@ -24,7 +24,7 @@ app.post("/", (req, res) => {
 
 app.post("/doMagic", async (req, res) => {
   try {
-    await runScript("./clone.sh", req.body.gitUrl);
+    // await runScript("./clone.sh", req.body.gitUrl);
     await runScript("./rn-start.sh", req.body.gitUrl);
     return res.send(req.body);
   } catch (e) {
@@ -56,6 +56,8 @@ const runScript = async (scriptToRun, ...args) => {
   });
 };
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`Example app listening at http://localhost:${PORT}`);
 });
+
+server.setTimeout(1000 * 60 * 10);
