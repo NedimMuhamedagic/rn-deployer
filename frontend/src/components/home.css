@@ -23,4 +23,13 @@
 }
 .headerText {
     color: #282c34 !important;
+    font-weight: bold !important;
+}
+.image {
+    max-width: 25em;
+}
+.text {
+    padding-top: 25px;
+    transform: translateY(30px);
+    font-weight: bold !important;
 }

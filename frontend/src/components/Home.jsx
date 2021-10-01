@@ -4,6 +4,7 @@ import TextField from '@mui/material/TextField'
 import {AppBar, Grid, IconButton, Toolbar, Typography} from "@mui/material";
 import "./home.css";
 import sprintingLogo from '../assets/logo.png';
+import image from '../assets/image.png';
 export const Home = () => {
     return (
         <>
@@ -33,6 +34,16 @@ export const Home = () => {
                 </Grid>
                 <Grid item xs={12}>
                         <Button variant="contained">Let the magic happen!</Button>
+                </Grid>
+                <Grid item xs={2} >
+                </Grid>
+                <Grid item xs={4} >
+                    <Typography variant="h4" component="div" gutterBottom className={"text"}>
+                        TURN YOUR HIGH QUALITY DEVOPS INTO USEFUL BUTTON
+                    </Typography>
+                </Grid>
+                <Grid item xs={6} >
+                    <img className={"image"} src={image}/>
                 </Grid>
                 <Grid item xs={12}>
                 </Grid>
