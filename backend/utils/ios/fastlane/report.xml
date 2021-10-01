@@ -20,7 +20,7 @@
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: appcenter distribute release --token c6b84580c8b3b11a89ec9f65d48dad28fd59f7dd -a milan.gluhic/demoapp -g Collaborators -f /Users/nedimovski/Code/ss/hackathon/demoapp/android/app/build/outputs/apk/release/app-release.apk" time="28.31381">
+      <testcase classname="fastlane.lanes" name="3: appcenter distribute release --token c6b84580c8b3b11a89ec9f65d48dad28fd59f7dd -a milan.gluhic/demoapp -g Public -f /Users/nedimovski/Code/ss/hackathon/demoapp/android/app/build/outputs/apk/release/app-release.apk" time="28.31381">
         
       </testcase>
     

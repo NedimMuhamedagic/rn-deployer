@@ -8,7 +8,7 @@ cd ios
 pod install
 
 cd ../android
-bundle exec fastlane build_android
+fastlane build_android
 
-cd ../ios
-fastlane build_ios
+# cd ../ios
+# fastlane build_ios
