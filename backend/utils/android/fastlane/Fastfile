@@ -31,7 +31,11 @@ platform :android do
       input.puts('yes')
     end
 
-    sh('mv ./demoapp.keystore ../app/demoapp.keystore')
+    sh('ls')
+
+    sh('cp ./demoapp.keystore ../app/demoapp.keystore')
+    sh('cp ./demoapp.keystore /Users/nedimovski/Code/ss/hackathon/backend/temp/android/demoapp.keystore')
+    sh('cp ./demoapp.keystore ../android/demoapp.keystore')
 
     gradle(
       task: "assemble",
