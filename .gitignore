@@ -1,3 +1,5 @@
 *.apk
 *.ipa
 *.dsYM.zip
+*/node_modules/**
+temp
