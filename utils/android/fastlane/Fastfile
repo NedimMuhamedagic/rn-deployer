@@ -1,0 +1,54 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:android)
+
+platform :android do
+  desc "Build the Android app"
+  lane :build_android do
+
+    shell_command = 'keytool -genkey -v -keystore demoapp.keystore -alias demoapp -storepass demoapp -keypass demoapp -keyalg RSA -validity 36500'
+
+    Open3.popen3(shell_command) do |input, output, error, thread|
+      input.puts('Nedim Muhamedagic')
+      input.puts('Foobar')
+      input.puts('test')
+      input.puts('test')
+      input.puts('test')
+      input.puts('US')
+      input.puts('yes')
+    end
+
+    sh('mv ./demoapp.keystore ../app/demoapp.keystore')
+
+    gradle(
+      task: "assemble",
+      build_type: "Release",
+      print_command: false,
+      properties: {
+        "android.injected.signing.store.file" => "demoapp.keystore",
+        "android.injected.signing.store.password" => "demoapp",
+        "android.injected.signing.key.alias" => "demoapp",
+        "android.injected.signing.key.password" => "demoapp",
+      }
+    )
+
+    APK_LOCATION = "#{lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]}"   
+    
+    sh("appcenter distribute release --token c6b84580c8b3b11a89ec9f65d48dad28fd59f7dd -a milan.gluhic/demoapp -g Collaborators -f #{APK_LOCATION}")
+
+    sh("mv #{APK_LOCATION} ../../../builds/demoapp.apk")
+  end
+end

@@ -13,6 +13,8 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		72453AC9FA3103BB3C2FD69C /* libPods-demoapp-demoappTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C45129B30FF750BA8133B5E3 /* libPods-demoapp-demoappTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		87C303CA2705C9ED00D69881 /* libswiftFileProvider.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 87C303C92705C9EC00D69881 /* libswiftFileProvider.tbd */; };
+		87C303CC2705C9F200D69881 /* libswiftDataDetection.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 87C303CB2705C9F200D69881 /* libswiftDataDetection.tbd */; };
 		976F53921828E977547131D2 /* libPods-demoapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF39E1E331B4E6D177B0BC37 /* libPods-demoapp.a */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,8 @@
 		4FF3D3DB91BC73B166A95420 /* Pods-demoapp-demoappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demoapp-demoappTests.debug.xcconfig"; path = "Target Support Files/Pods-demoapp-demoappTests/Pods-demoapp-demoappTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7695C8C4597AC39A586CAA14 /* Pods-demoapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demoapp.debug.xcconfig"; path = "Target Support Files/Pods-demoapp/Pods-demoapp.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = demoapp/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		87C303C92705C9EC00D69881 /* libswiftFileProvider.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftFileProvider.tbd; path = usr/lib/swift/libswiftFileProvider.tbd; sourceTree = SDKROOT; };
+		87C303CB2705C9F200D69881 /* libswiftDataDetection.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftDataDetection.tbd; path = usr/lib/swift/libswiftDataDetection.tbd; sourceTree = SDKROOT; };
 		A3D995C50536986FFD07E9C6 /* Pods-demoapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demoapp.release.xcconfig"; path = "Target Support Files/Pods-demoapp/Pods-demoapp.release.xcconfig"; sourceTree = "<group>"; };
 		BF39E1E331B4E6D177B0BC37 /* libPods-demoapp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-demoapp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C45129B30FF750BA8133B5E3 /* libPods-demoapp-demoappTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-demoapp-demoappTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +64,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				976F53921828E977547131D2 /* libPods-demoapp.a in Frameworks */,
+				87C303CC2705C9F200D69881 /* libswiftDataDetection.tbd in Frameworks */,
+				87C303CA2705C9ED00D69881 /* libswiftFileProvider.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +105,8 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				87C303CB2705C9F200D69881 /* libswiftDataDetection.tbd */,
+				87C303C92705C9EC00D69881 /* libswiftFileProvider.tbd */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				BF39E1E331B4E6D177B0BC37 /* libPods-demoapp.a */,
 				C45129B30FF750BA8133B5E3 /* libPods-demoapp-demoappTests.a */,
@@ -145,7 +153,6 @@
 				4FF3D3DB91BC73B166A95420 /* Pods-demoapp-demoappTests.debug.xcconfig */,
 				F81E1C42875839B0B75CA8DB /* Pods-demoapp-demoappTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -432,6 +439,7 @@
 			baseConfigurationReference = 4FF3D3DB91BC73B166A95420 /* Pods-demoapp-demoappTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 36SBYK4Z2F;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -460,6 +468,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 36SBYK4Z2F;
 				INFOPLIST_FILE = demoappTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -484,20 +493,28 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2K7ZAQAL34;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = demoapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hackathon.demosprintnedim;
 				PRODUCT_NAME = demoapp;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -510,19 +527,27 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2K7ZAQAL34;
 				INFOPLIST_FILE = demoapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hackathon.demosprintnedim;
 				PRODUCT_NAME = demoapp;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
